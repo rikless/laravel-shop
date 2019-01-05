@@ -167,11 +167,11 @@ trait ShopCalculationsTrait
             ])
             ->join(
                 Config::get('shop.item_table'),
-                Config::get('shop.item_table') . '.' . ($this->table == Config::get('shop.order_table') ? 'order_id' : $this->table . '_id'),
+                Config::get('shop.item_table') . '.' . ($this->table == Config::get('shop.order_table') ? 'order_id' : str_singular($this->table) . '_id'),
                 '=',
-                $this->table . '.id'
+                Config::get('shop.cart_table') . '.id'
             )
-            ->where($this->table . '.id', $this->attributes['id'])
+            ->where(Config::get('shop.cart_table') . '.id', $this->attributes['id'])
             ->first();
         if (Config::get('shop.cache_calculations')) {
             Cache::put(

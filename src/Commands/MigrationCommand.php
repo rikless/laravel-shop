@@ -36,6 +36,10 @@ class MigrationCommand extends Command
      *
      * @return void
      */
+    public function handle()
+    {
+        $this->fire();
+    }
     public function fire()
     {
         $this->laravel->view->addNamespace('laravel-shop', substr(__DIR__, 0, -8).'views');

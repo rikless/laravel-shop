@@ -29,17 +29,15 @@ class LaravelShopProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot(Router $router)
+    public function boot()
     {
-        parent::boot($router);
+        parent::boot();
 
         // Publish config files
         $this->publishes([
             __DIR__ . '/Config/config.php' => config_path('shop.php'),
         ]);
-
-        // Register commands
-        $this->commands('command.laravel-shop.migration');
+            $this->commands('command.laravel-shop.migration');
 
     }
 

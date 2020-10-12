@@ -1,18 +1,11 @@
-ITwrx fork of LARAVEL SHOP (minor changes for Laravel 5.2 Compatibility)
+fork of LARAVEL SHOP (minor changes for Laravel 5.2 Compatibility)
 --------------------------------
 
-[![Latest Stable Version](https://poser.pugx.org/amsgames/laravel-shop/v/stable)](https://packagist.org/packages/amsgames/laravel-shop)
-[![Total Downloads](https://poser.pugx.org/amsgames/laravel-shop/downloads)](https://packagist.org/packages/amsgames/laravel-shop)
-[![Latest Unstable Version](https://poser.pugx.org/amsgames/laravel-shop/v/unstable)](https://packagist.org/packages/amsgames/laravel-shop)
-[![License](https://poser.pugx.org/amsgames/laravel-shop/license)](https://packagist.org/packages/amsgames/laravel-shop)
 
-Laravel Shop is flexible way to add shop functionality to **Laravel 5.2**. Aimed to be the e-commerce solution for artisans.
+Laravel Shop is flexible way to add shop functionality to **Laravel 8.9**. Aimed to be the e-commerce solution for artisans.
 
 Laravel shop adds shopping cart, orders and payments to your new or existing project; letting you transform any model into a shoppable item.
 
-**Supports**
-
-![PayPal](http://kamleshyadav.com/demo_ky/eventmanagementsystem/assets/front/images/paypal.png) ![Omnipay](http://s18.postimg.org/g68f3fs09/omnipay.jpg)
 
 ## Contents
 
@@ -91,7 +84,7 @@ composer require amsgames/laravel-shop
 Or add
 
 ```json
-"amsgames/laravel-shop": "0.2.*"
+"rikless/laravel-shop": "0.2.*"
 ```
 
 to your composer.json. Then run `composer install` or `composer update`.

@@ -14,7 +14,7 @@ class ShopSetupTables extends Migration
     {
         // Create table for storing carts
         Schema::create('{{ $cartTable }}', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->unsignedBigIncrements('id');
             $table->integer('user_id')->unsigned();
             $table->timestamps();
             $table->foreign('user_id')
@@ -26,14 +26,14 @@ class ShopSetupTables extends Migration
         });
         // Create table for storing items
         Schema::create('{{ $itemTable }}', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->unsignedBigIncrements('id');
             $table->integer('user_id')->unsigned();
             $table->bigInteger('cart_id')->unsigned()->nullable();
             $table->bigInteger('order_id')->unsigned()->nullable();
             $table->string('sku');
-            $table->decimal('price', 20, 2);
-            $table->decimal('tax', 20, 2)->default(0);
-            $table->decimal('shipping', 20, 2)->default(0);
+            $table->decimal('price', 20, 3);
+            $table->decimal('tax', 4, 3)->default(0);
+            $table->decimal('shipping', 20, 3)->default(0);
             $table->string('currency')->nullable();
             $table->integer('quantity')->unsigned();
             $table->string('class')->nullable();
@@ -63,7 +63,7 @@ class ShopSetupTables extends Migration
             $table->string('name');
             $table->string('description', 1024)->nullable();
             $table->string('sku');
-            $table->decimal('value', 20, 2)->nullable();
+            $table->decimal('value', 20, 3)->nullable();
             $table->decimal('discount', 3, 2)->nullable();
             $table->integer('active')->default(1);
             $table->dateTime('expires_at')->nullable();
@@ -83,7 +83,7 @@ class ShopSetupTables extends Migration
         });
         // Create table for storing carts
         Schema::create('{{ $orderTable }}', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->unsignedBigIncrements('id');
             $table->integer('user_id')->unsigned();
             $table->string('statusCode', 32);
             $table->timestamps();
@@ -101,7 +101,7 @@ class ShopSetupTables extends Migration
         });
         // Create table for storing transactions
         Schema::create('{{ $transactionTable }}', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->unsignedBigIncrements('id');
             $table->bigInteger('order_id')->unsigned();
             $table->string('gateway', 64);
             $table->string('transaction_id', 64);

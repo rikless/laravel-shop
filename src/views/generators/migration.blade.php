@@ -14,8 +14,8 @@ class ShopSetupTables extends Migration
     {
         // Create table for storing carts
         Schema::create('{{ $cartTable }}', function (Blueprint $table) {
-            $table->unsignedBigIncrements('id');
-            $table->integer('user_id')->unsigned();
+            $table->id();
+            $table->unsignedBigInteger('user_id')->unsigned();
             $table->timestamps();
             $table->foreign('user_id')
                 ->references('{{ $userKeyName }}')
@@ -26,10 +26,10 @@ class ShopSetupTables extends Migration
         });
         // Create table for storing items
         Schema::create('{{ $itemTable }}', function (Blueprint $table) {
-            $table->unsignedBigIncrements('id');
-            $table->integer('user_id')->unsigned();
-            $table->bigInteger('cart_id')->unsigned()->nullable();
-            $table->bigInteger('order_id')->unsigned()->nullable();
+            $table->id();
+            $table->unsignedBigInteger('user_id')->unsigned();
+            $table->unsignedBigInteger('cart_id')->unsigned()->nullable();
+            $table->unsignedBigInteger('order_id')->unsigned()->nullable();
             $table->string('sku');
             $table->decimal('price', 20, 3);
             $table->decimal('tax', 4, 3)->default(0);
@@ -83,8 +83,8 @@ class ShopSetupTables extends Migration
         });
         // Create table for storing carts
         Schema::create('{{ $orderTable }}', function (Blueprint $table) {
-            $table->unsignedBigIncrements('id');
-            $table->integer('user_id')->unsigned();
+            $table->id();
+            $table->unsignedBigInteger('user_id')->unsigned();
             $table->string('statusCode', 32);
             $table->timestamps();
             $table->foreign('user_id')
@@ -101,7 +101,7 @@ class ShopSetupTables extends Migration
         });
         // Create table for storing transactions
         Schema::create('{{ $transactionTable }}', function (Blueprint $table) {
-            $table->unsignedBigIncrements('id');
+            $table->id();
             $table->bigInteger('order_id')->unsigned();
             $table->string('gateway', 64);
             $table->string('transaction_id', 64);

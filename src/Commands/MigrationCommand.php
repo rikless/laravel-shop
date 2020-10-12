@@ -157,7 +157,7 @@ class MigrationCommand extends Command
      */
     protected function createSeeder($data)
     {
-        $seederFile = base_path('/database/seeds') . '/LaravelShopSeeder.php';
+        $seederFile = base_path('/database/seeders') . '/LaravelShopSeeder.php';
 
         $output = $this->laravel->view->make('laravel-shop::generators.seeder')->with($data)->render();
 

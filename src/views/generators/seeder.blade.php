@@ -1,4 +1,5 @@
 <?php echo '<?php' ?>
+namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
@@ -17,9 +18,9 @@ class LaravelShopSeeder extends Seeder
   public function run()
   {
 
-    DB::table('{{ $orderStatusTable }}')->delete();
+    \DB::table('{{ $orderStatusTable }}')->delete();
 
-    DB::table('{{ $orderStatusTable }}')->insert([
+    \DB::table('{{ $orderStatusTable }}')->insert([
 		    [
 		    		'code' 				=> 'in_creation',
 		    		'name' 				=> 'In creation',
